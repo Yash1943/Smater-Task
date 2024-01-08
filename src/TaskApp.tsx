@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TaskItem } from "./types";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
@@ -51,6 +51,18 @@ const TaskApp = () => {
       tasks: [...taskAppState.tasks, task],
     });
   };
+  useEffect(() => {
+    console.log("Calling The User API");
+    document.title = `You have ${taskAppState.tasks.length} items`;
+  }, [taskAppState.tasks]); //[] Call Bcz it use for it will only call when the components is mounted
+  useEffect(() => {
+    // subscribe or connect to services here
+    // ...
+    return () => {
+      // do any clean up code here.
+      // unsubscribe / disconnect services
+    };
+  });
   return (
     <div className="container max-w-7xl mx-3 ">
       <h1 className="text-3xl mb-2 font-bold text-slate-700 ml-14">Smarter Tasks</h1>
