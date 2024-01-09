@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 import { TaskItem } from "./types";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
@@ -43,7 +44,7 @@ interface TaskAppState {
 // export default TaskApp;
 
 const TaskApp = () => {
-  const [taskAppState, setTaskAppState] = React.useState<TaskAppState>({
+  const [taskAppState, setTaskAppState] = useLocalStorage<TaskAppState>("tasks", {
     tasks: [],
   });
   const addTask = (task: TaskItem) => {
