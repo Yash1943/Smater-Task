@@ -2,6 +2,7 @@ import "./TaskCard.css";
 import { TaskItem } from "./type";
 
 interface TaskProps {
+  id: string;
   title: string;
   dueDate: string;
   description: string;
@@ -23,6 +24,10 @@ interface TaskProps {
 // export default Task;
 
 const Task = (props: TaskItem) => {
+  function removeTask(id: string): void {
+    throw new Error("Function not implemented.");
+  }
+
   // const { item, removeTask } = props;
   return (
     <div className="TaskItem shadow-md border border-slate-100 bg-gray-200 ">

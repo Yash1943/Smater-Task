@@ -5,15 +5,29 @@ import HomePage from "./Pages/HomePage";
 import TaskListPage from "./Pages/TaskListPage";
 import Layout from "./Layout";
 import TaskDetails from "./Pages/TaskDetailsPage";
+import Signin from "./Pages/Signin";
+import ProtectedRoute from "./ProtectedRoute";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
-    element: <Layout />,
+    path: "/",
+    element: <Navigate to="/signin" replace />,
+  },
+  {
+    path: "/signin",
+    element: <Signin />,
+  },
+  {
+    element: (
+      <ProtectedRoute>
+        <Layout />
+      </ProtectedRoute>
+    ),
     children: [
       {
-        path: "/",
+        path: "home",
         element: <HomePage />,
       },
       {
