@@ -6,6 +6,7 @@ import Layout from "./Layout";
 import TaskDetails from "./Pages/TaskDetailsPage";
 import Signin from "./Pages/Signin";
 import ProtectedRoute from "./ProtectedRoute";
+import NotFound from "./Pages/NotFound";
 
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/tasks/:id",
         element: <TaskDetails />,
+      },
+      {
+        path: "/notfound",
+        element: <NotFound />,
       },
     ],
   },
